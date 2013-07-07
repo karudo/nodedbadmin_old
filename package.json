@@ -1,0 +1,21 @@
+{
+  "name": "nodedbadmin",
+  "version": "0.0.0",
+  "description": "nodedbaddmin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karudo/nodedbadmin.git"
+  },
+  "author": "Deonis Peretyagin",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/karudo/nodedbadmin/issues"
+  },
+  "dependencies": {
+    "eengine": "https://github.com/karudo/eengine/archive/v0.1.tar.gz"
+  }
+}
