@@ -1,2 +1,9 @@
 .idea
+bower_components
 node_modules
+app/public/
+webapp/views/index.coffee
+webapp/mixins/index.coffee
+webapp/models/index.coffee
+webapp/routes/index.coffee
+webapp/controllers/index.coffee
