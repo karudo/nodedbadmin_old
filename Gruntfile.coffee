@@ -32,12 +32,13 @@ module.exports = (grunt)->
     copy:
       all:
         files: [
+          {cwd: './bower_components/underscore/', src: 'underscore.js', dest: BUILD_PATH, expand: yes}
           {cwd: './bower_components/jquery/', src: 'jquery.js', dest: BUILD_PATH, expand: yes}
           {cwd: './bower_components/handlebars/', src: 'handlebars.runtime.js', dest: BUILD_PATH, expand: yes}
           {cwd: './bower_components/ember/', src: 'ember.js', dest: BUILD_PATH, expand: yes}
         ]
 
-    ember_templates:
+    emberTemplates:
       build:
         options:
           templateName: (fileName)-> path.relative TEMPLATES_SRC, fileName
@@ -49,7 +50,7 @@ module.exports = (grunt)->
         tasks: ['browserify2']
       handlebars:
         files: [ APP_PATH+'**/*.handlebars' ]
-        tasks: 'ember_templates'
+        tasks: 'emberTemplates'
       style:
         files: [ APP_PATH+'style.css' ]
         tasks: 'copy:style'
@@ -119,7 +120,7 @@ module.exports = (grunt)->
   grunt.registerTask 'build', [
     'clean'
     'copy'
-    'ember_templates:build'
+    'emberTemplates:build'
     'createIndex'
     'browserify2:build'
   ]
