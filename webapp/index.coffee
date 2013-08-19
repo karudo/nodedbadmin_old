@@ -1,7 +1,5 @@
 App = window.App = require './app.coffee'
 
-#STORE
-#App.Store = require './store.coffee'
 
 
 #MODELS

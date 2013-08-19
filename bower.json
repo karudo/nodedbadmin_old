@@ -11,7 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "ember": "~1.0.0-rc.6.1",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "ember": "~1.0.0-rc.7"
   }
 }

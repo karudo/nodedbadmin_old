@@ -1,7 +1,7 @@
 .idea
 bower_components
 node_modules
-app/public/
+app/client/
 webapp/views/index.coffee
 webapp/mixins/index.coffee
 webapp/models/index.coffee

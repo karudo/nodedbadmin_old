@@ -16,7 +16,6 @@
     "url": "https://github.com/karudo/nodedbadmin/issues"
   },
   "dependencies": {
-    "eengine": "https://github.com/karudo/eengine/archive/v0.1.tar.gz"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

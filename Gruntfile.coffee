@@ -7,7 +7,7 @@ _s = require 'underscore.string'
 coffeeify = require 'coffeeify'
 
 module.exports = (grunt)->
-  BUILD_DIR = 'app/public'
+  BUILD_DIR = 'app/client'
   APP_PATH = './webapp/'
   BUILD_PATH = "./#{BUILD_DIR}/"
   TEMPLATES_SRC = APP_PATH+'templates/'
@@ -33,10 +33,11 @@ module.exports = (grunt)->
       all:
         files: [
           {cwd: './bower_components/underscore/', src: 'underscore.js', dest: BUILD_PATH, expand: yes}
-          {cwd: './bower_components/jquery/', src: 'jquery.js', dest: BUILD_PATH, expand: yes}
-          {cwd: './bower_components/handlebars/', src: 'handlebars.runtime.js', dest: BUILD_PATH, expand: yes}
-          {cwd: './bower_components/ember/', src: 'ember.js', dest: BUILD_PATH, expand: yes}
-        ]
+          #{cwd: './bower_components/jquery/', src: 'jquery.js', dest: BUILD_PATH, expand: yes}
+          #{cwd: './bower_components/handlebars/', src: 'handlebars.runtime.js', dest: BUILD_PATH, expand: yes}
+          #{cwd: './bower_components/ember/', src: 'ember.js', dest: BUILD_PATH, expand: yes}
+          {cwd: './ember/', src: '*', dest: BUILD_PATH, expand: yes}
+          ]
 
     emberTemplates:
       build:
@@ -48,21 +49,7 @@ module.exports = (grunt)->
       coffee:
         files: [ APP_PATH+'*.coffee', APP_PATH+'**/*.coffee' ]
         tasks: ['browserify2']
-      handlebars:
-        files: [ APP_PATH+'**/*.handlebars' ]
-        tasks: 'emberTemplates'
-      style:
-        files: [ APP_PATH+'style.css' ]
-        tasks: 'copy:style'
-      index2:
-        files: [ APP_PATH+'index2.html' ]
-        tasks: 'copy:all'
-      index3:
-        files: [ APP_PATH+'index3.html' ]
-        tasks: 'copy:all'
-      vendor:
-        files: [ APP_PATH+'vendor/*' ]
-        tasks: 'copy:all'
+
 
     createIndex:
       models:
