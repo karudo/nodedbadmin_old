@@ -7,3 +7,4 @@ webapp/mixins/index.coffee
 webapp/models/index.coffee
 webapp/routes/index.coffee
 webapp/controllers/index.coffee
+ember/

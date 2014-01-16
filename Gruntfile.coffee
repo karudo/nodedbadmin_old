@@ -33,10 +33,10 @@ module.exports = (grunt)->
       all:
         files: [
           {cwd: './bower_components/underscore/', src: 'underscore.js', dest: BUILD_PATH, expand: yes}
-          #{cwd: './bower_components/jquery/', src: 'jquery.js', dest: BUILD_PATH, expand: yes}
-          #{cwd: './bower_components/handlebars/', src: 'handlebars.runtime.js', dest: BUILD_PATH, expand: yes}
-          #{cwd: './bower_components/ember/', src: 'ember.js', dest: BUILD_PATH, expand: yes}
-          {cwd: './ember/', src: '*', dest: BUILD_PATH, expand: yes}
+          {cwd: './bower_components/jquery/', src: 'jquery.js', dest: BUILD_PATH, expand: yes}
+          {cwd: './bower_components/handlebars/', src: 'handlebars.runtime.js', dest: BUILD_PATH, expand: yes}
+          {cwd: './bower_components/ember/', src: 'ember.js', dest: BUILD_PATH, expand: yes}
+          #{cwd: './ember/', src: '*', dest: BUILD_PATH, expand: yes}
           ]
 
     emberTemplates:
@@ -49,6 +49,9 @@ module.exports = (grunt)->
       coffee:
         files: [ APP_PATH+'*.coffee', APP_PATH+'**/*.coffee' ]
         tasks: ['browserify2']
+      handlebars:
+        files: [ TEMPLATES_SRC+'*.handlebars', TEMPLATES_SRC+'**/*.handlebars' ]
+        tasks: ['emberTemplates']
 
 
     createIndex:
@@ -103,13 +106,16 @@ module.exports = (grunt)->
     fs.writeFile destFilePath, destFileSrc, (err)-> done err
     yes
 
+  grunt.registerTask 'emberCode', [
+    'createIndex'
+    'browserify2'
+  ]
 
   grunt.registerTask 'build', [
     'clean'
     'copy'
-    'emberTemplates:build'
-    'createIndex'
-    'browserify2:build'
+    'emberTemplates'
+    'emberCode'
   ]
 
   grunt.registerTask 'default', [
